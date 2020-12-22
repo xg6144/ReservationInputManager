@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "user.UserDAO" %>
 	<%
+	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	String name = request.getParameter("name");
 	
-	UserDAO dao = new UserDAO();
+	UserDAO dao = UserDAO.getInstance();
 	
 	int result = dao.insertUser(id, pw, name);
 	

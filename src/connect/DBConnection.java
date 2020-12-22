@@ -12,7 +12,7 @@ public class DBConnection {
 	public static Connection getConnection() throws SQLException, NamingException,
 	ClassNotFoundException{
 		Context context = new InitialContext();
-		DataSource ds = (DataSource) context.lookup(""); //추가해야함
+		DataSource ds = (DataSource) context.lookup("java:/comp/env/jdbc/Oracle11g");
 		Connection conn = ds.getConnection();
 		return conn;
 	}

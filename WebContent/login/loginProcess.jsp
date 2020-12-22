@@ -20,14 +20,16 @@
 		history.go(-1);
 	</script>
 <%
-	}else if(result == UserDAO.NOT_EQUAL_PASSWORD){
+	}
+	else if(result == UserDAO.NOT_EQUAL_PASSWORD){
 %>
 	<script type="text/javascript">
 		alert("비밀번호가 일치하지 않습니다.");
 		history.go(-1);
 	</script>
 <%
-	}else if(result == UserDAO.SUCCESS){
+	}
+	else if(result == UserDAO.SUCCESS){
 		UserVO vo = dao.getUser(user_id);
 		
 		if(vo == null){

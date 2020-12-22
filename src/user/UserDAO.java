@@ -26,7 +26,7 @@ public class UserDAO {
     public int insertUser(String id, String pw, String name)
     {
     	int result = 0;
-        //DB¿¬°á
+        //DBì—°ê²° 
         Connection conn = null;
         PreparedStatement pstmt = null;
         
@@ -42,12 +42,11 @@ public class UserDAO {
 
             pstmt.executeUpdate();
             result = SUCCESS;
-            return result;
+            
         }catch(Exception e)
         {
         	result = FAIL;  	
            e.printStackTrace();
-            return result;
         }
         finally
         {
@@ -60,6 +59,7 @@ public class UserDAO {
         
         	}
         }
+       return result;
     }
     
     public UserVO getUser(String id) {
@@ -110,7 +110,7 @@ public class UserDAO {
     		
     		pstmt = conn.prepareStatement(sql);
     		pstmt.setString(1, id);
-    		
+    		rs = pstmt.executeQuery();
     		if(rs.next()) {
     			String user_pw = rs.getString("user_pw");
     			if(user_pw.equals(pw)) {
@@ -121,11 +121,9 @@ public class UserDAO {
     		}else {
     			result = FAIL;
     		}
-    		return result;
     	}catch(Exception e){
     		e.printStackTrace();
     		result = FAIL;
-    		return result;
     	}finally {
     		try {
     			if(conn != null) conn.close();
@@ -135,6 +133,7 @@ public class UserDAO {
     			e.printStackTrace();
     		}
     	}
+    	return result;
     }
     
     

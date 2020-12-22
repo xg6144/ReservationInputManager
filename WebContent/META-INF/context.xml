@@ -26,4 +26,15 @@
     <!--
     <Manager pathname="" />
     -->
+    <Resource
+    	auth="Container"
+    	name="jdbc/Oracle11g"
+    	driverClassName="oracle.jdbc.driver.OracleDriver"
+    	type="javax.sql.DataSource"
+    	url="jdbc:oracle:thin:@localhost:1521:XE"
+    	username="reservation"
+    	password="reservation0813"
+    	maxActive="10"
+    	maxWait="1000"
+    	/>
 </Context>
